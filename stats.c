@@ -34,44 +34,119 @@ void main() {
                                 7,  87, 250, 230,  99,   3, 100,  90};
 
   /* Other Variable Declarations Go Here */
+	
   /* Statistics and Printing Functions Go Here */
-
+  sort_array(test, SIZE);	
+  print_array(test, SIZE);
+  print_statistics(test, SIZE);
 }
 
 /* Add other Implementation File Code Here */
 
 /*******************************************************************/
 void print_statistics(unsigned char * ptr, int count) {
-  //function code here
+  float mean, median;
+  unsigned char max,min;
+
+
+  mean = find_mean(ptr, count);
+  printf("mean is %.2f\n",mean);
+  median = find_median(ptr, count);
+  printf("median is %.2f\n",median);	
+  max = find_maximum(ptr, count);
+  printf("maximum is %d\n",max);
+  min = find_minimum(ptr, count);
+  printf("minimum is %d\n",min);
 }
 /******************************************************************/
 
 
-void print_array(unsigned char * ptr, int count) {
-  //function code here
+void print_array(unsigned char *ptr, int count) {
+  for(unsigned char i = 0; i < count; ++i) {
+      	printf("%d",*ptr);
+	if((int)*ptr < 10) {
+	  printf("   ");	
+	} else if((int)*ptr < 100) {
+	  printf("  ");	
+	} else if((int)*ptr < 1000) {
+	  printf(" ");	
+	}
+	if((i+1) % 8 == 0) {
+	  printf("\n");	
+	}
+	ptr++;
+  }
 }
 
 
 float find_median(unsigned char * ptr, int count) {
-
+  unsigned int median, med1, med2; 
+  sort_array(ptr, count);
+  
+  if((count+1) % 2 == 0) {
+    median = (count+1) / 2;
+    return (float) ptr[median];
+} else {
+      med1 = (count / 2);
+      med2 = ((count/ 2) + 1);
+	return (float)((ptr[med1] + ptr[med2]) / 2.0);
+  }
 }
 
 
 float find_mean(unsigned char * ptr, int count) {
-
+  unsigned long int sum = 0;
+  for(unsigned char i = 0; i < count; ++i) {
+	sum += (int)*ptr;
+	ptr++;
+  }
+  return ((float)sum/(float)count);
 }
 
 
 unsigned char find_maximum(unsigned char * ptr, int count) {
+  unsigned char val = 0;  
 
+  for(int i = 0; i < count; ++i) {
+    	
+    if(ptr[i] > val) {
+	  val = ptr[i];	
+    }  
+    
+  }
+  return val;
 }
 
 
 unsigned char find_minimum(unsigned char * ptr, int count) {
+  unsigned char val = ptr[0];  
 
+  for(int i = 0; i < count; ++i) {
+    	
+    if(ptr[i] < val) {
+	  val = ptr[i];	
+    }  
+    
+  }
+  return val;    		
 }
 
 
 void sort_array(unsigned char * ptr, int count) {
+  
+  int val1,val2;
+  val1 = 0;
+  for(int i = 0; i < count; ++i) {
+    for(int j = i+1; j < count; ++j) {
+    	if(ptr[i] < ptr[j]) {
+	  
+	  val2 = ptr[i];
+	  ptr[i] = ptr[j];	
+	  ptr[j] = val2;
+	}  
+    
+    }
+      		
+  }
 
 }
