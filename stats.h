@@ -27,20 +27,110 @@
 #ifndef __STATS_H__
 #define __STATS_H__
 
-/* Add Your Declarations and Function Comments here */ 
+
+/******************************************************************************
+ * print_statistics prints statistics of input array.
+ * 
+ * @brief  This function prints the statistics of an array including minimum
+ *         maximum, mean and median of the set..
+ * 
+ * @param  int * ptr: Pointer to array 
+ * @param  int count: Number of items in data set
+ * 
+ * @return  None.
+ * 
+ *****************************************************************************/
+void print_statistics(unsigned char * ptr, int count);
+
+/******************************************************************************
+ * print_array prints elements of input array.
+ * 
+ * @brief  Given an array of data and a length, prints the array to the screen.
+ * 
+ * @param  unsigned char * ptr: Pointer to a data set.
+ * @param  int count: Number of items in data set
+ *  
+ * @return  None. 
+ *     
+ *****************************************************************************/
+void print_array(unsigned char * ptr, int count);
+
 
 /**
- * @brief <Add Brief Description of Function Here>
- *
- * <Add Extended Description Here>
- *
- * @param <Add InputName> <add description here>
- * @param <Add InputName> <add description here>
- * @param <Add InputName> <add description here>
- * @param <Add InputName> <add description here>
- *
- * @return <Add Return Informaiton here>
+ * find_median calculates median of input array.
+ * 
+ * @brief  Given an array of data and a length, calaculates the median and 
+ * 	   returns.
+ * 
+ * @param  unsigned char * ptr: Pointer to a data set.
+ * @param  int count: Number of items in data set.
+ *  
+ * @return  float Calculated median. 
+ *     
  */
+float find_median(unsigned char * ptr, int count);
+
+
+/**
+ * find_mean calculates mean of input array.
+ * 
+ * @brief  Given an array of data and a length, calaculates the mean and  
+ * 	   returns.
+ * 
+ * @param  unsigned char * ptr Pointer to a data set.
+ * @param  int count: Number of items in data set.
+ *  
+ * @return  float Calculated mean. 
+ *  
+ */
+float find_mean(unsigned char * ptr, int count);
+
+
+/**
+ * find_maximum finds maximum element of input array.
+ * 
+ * @brief  Given an array of data and a length, find maximum element and  
+ * 	   returns.
+ * 
+ * 
+ * @param  unsigned char * ptr: Pointer to a data set.
+ * @param  int count Number of items in data set.
+ *  
+ * @return  unsigned char The calculated maximum element. 
+ *     
+ */
+unsigned char find_maximum(unsigned char * ptr, int count);
+
+/**
+ * find_minimum finds minimum element of input array.
+ * 
+ * @brief  Given an array of data and a length, finds minimum element and 
+ * 	   returns.
+ * 
+ * @param  unsigned char * ptr: Pointer to a data set.
+ * @param  int count: Number of items in data set.
+ *  
+ * @return  unsigned char The calculated minimum element. 
+ *     
+ */
+unsigned char find_minimum(unsigned char * ptr, int count);
+
+
+
+/**
+ * sort_array sort input array in decending order.
+ * 
+ * @brief  Given an array of data and a length, sorts the array from 
+ *	   largest to smallest(The zeroth element will have largest value, and 	
+ *	   the last element(n-1) will be smallest value.
+ * 
+ * @param  unsigned char * ptr Pointer to a data set.
+ * @param  int count Number of items in data set.
+ *  
+ * @return  none
+ *     
+ */
+void sort_array(unsigned char * ptr, int count);
 
 
 #endif /* __STATS_H__ */
